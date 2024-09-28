@@ -37,6 +37,10 @@
     padding: 8px;
 }
 
+.mainPage-headerBlock svg {
+    font-size: 30px
+}
+
 .mainPage-LogoBlock img {
     width: 35px;
     height: 35px;
