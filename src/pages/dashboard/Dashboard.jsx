@@ -58,7 +58,7 @@ const Dashboard = () => {
               <div>Youth</div>
               <div>(Under 18)</div>
             </div>
-            <div>
+            <div className='dashboard-customerByAge-middle'>
               <div className='dashboard-customerByAge-Number'>15</div>
               <div>Adult</div>
               <div>(18-45)</div>

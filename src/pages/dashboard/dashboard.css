@@ -176,12 +176,17 @@
 
 @media (max-width: 998px) {
     .dashboard-customerByAge {
+        flex-direction: column;
         margin-top: 16px;
-        font-size: 14px;
+        font-size: 12px;
     }
     
+    .dashboard-customerByAge-middle {
+        margin: 20px 0px
+    }
+
     .dashboard-customerByAge-Number {
-        font-size: 20px;
+        font-size: 16px;
     }
     
     .dashboard-customerByAgeHeading {

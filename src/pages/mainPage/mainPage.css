@@ -101,13 +101,14 @@
   }
 
 @media (max-width: 998px) {
+
+
     .mainPage-section-container {
         padding: 10px;
         margin: 10px;
         border-radius: 6px;
         /* min-height: 100vh; */
         background-color: #fff;
-        min-height: calc(100vh - 120px);
     }
     
     .mainPage-sectionHeading {
