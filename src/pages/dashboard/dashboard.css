@@ -27,6 +27,7 @@
     border: none;
     border-radius: 6px;
     transition: background-color 0.5s, transform 0.3s ;
+    -webkit-tap-highlight-color: transparent;
 }
 
 .dashboard-createCustomerBlock button svg {
@@ -77,6 +78,7 @@
     cursor: pointer;
     padding: 30px 0px 10px 10px;
     position: relative;
+    -webkit-tap-highlight-color: transparent;
 }
 
 .dashboard-customersGraphHeadingOption {
@@ -91,13 +93,19 @@
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
     opacity: 0; /* Hide initially */
     background-color: #fff;
+    -webkit-tap-highlight-color: transparent;
+    box-sizing: border-box;
     transition: opacity 0.3s ease, height 0.3s ease; /* Smooth transition */
 }
 
 .dashboard-customersGraphHeading:hover .dashboard-customersGraphHeadingOption {
-    height: 24px; /* Allows the element to expand */
+    height: 32px; /* Allows the element to expand */
     opacity: 1; /* Make visible */
     padding: 4px; /* Add padding when visible */
+}
+
+.dashboard-customersGraphHeadingOption:hover {
+    border: 1px solid #4643d3;
 }
 
 .dashboard-customersGraphBlock {
@@ -131,6 +139,7 @@
     border-radius: 6px;
     /* width: 30%; */
     transition: background-color 0.5s, transform 0.3s ;
+    -webkit-tap-highlight-color: transparent;
 }
 
 .dashboard-generateBtn button svg {
@@ -224,7 +233,7 @@
     }
 
     .dashboard-customersGraphHeading:hover .dashboard-customersGraphHeadingOption {
-        height: 20px; /* Allows the element to expand */
+        height: 30px; /* Allows the element to expand */
         width: 70px;
     }
     

@@ -22,10 +22,10 @@ const SideBar = (props) => {
         <div className='sideBar-mainMenu-Block'>
           <div className='sideBar-mainMenu-heading'>Main Menu</div>
           <div className='sideBar-mainMenuItems'>
-            <Link to='/dashboard'>
+            <Link to='/dashboard' onClick={() => setSideBarToggle(false)}>
               <DashboardIcon/> <span>Dashboard</span>
             </Link>
-            <Link to='/customers'>
+            <Link to='/customers' onClick={() => setSideBarToggle(false)}>
               <SupervisorAccountIcon/> <span>Customers</span>
             </Link>
           </div>
