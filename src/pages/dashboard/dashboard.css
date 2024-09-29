@@ -1,0 +1,279 @@
+.dashboard-container {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    grid-template-areas: 
+        "createCustomerBtn createCustomerBtn"
+        "totalCustomerBlock customersGraphBlock"
+        "totalCustomerBlock customersGraphBlock"
+        "customerByAgeBlock customerByAgeBlock"
+        "generateBtn generateBtn";
+    /* grid-template-rows: 1fr 1fr 1fr; */
+}
+
+.dashboard-createCustomerBlock {
+    grid-area: createCustomerBtn;
+    margin-left: auto;
+    /* border: 1px solid; */
+}
+
+.dashboard-createCustomerBlock button {
+    display: flex;
+    align-items: center;
+    background-color: #4643d3;
+    color: #fff;
+    font-size: 14px;
+    font-weight: 500;
+    outline: none;
+    border: none;
+    border-radius: 6px;
+    transition: background-color 0.5s, transform 0.3s ;
+}
+
+.dashboard-createCustomerBlock button svg {
+    background-color: #8f8de4;
+    font-size: 14px;
+    margin-right: 10px;
+    color: #fff;
+    border-radius: 4px;
+}
+
+.dashboard-createCustomerBlock button:hover {
+    background-color: #232197;
+    transform: scale(1.05);
+}
+
+.dashboard-totalCustomerBlock {
+    grid-area: totalCustomerBlock;
+    padding: 0px 100px 0px 10px;
+    /* border: 1px solid; */
+}
+
+.dashboard-totalCustomer {
+    margin-bottom: 80px;
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.dashboard-totalCustomerGender {
+    display: flex;
+    justify-content: space-between;
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.dashboard-totalCustomer span,
+.dashboard-totalCustomerGender span {
+    font-size: 44px;
+    color: #726fe4;
+    margin-left: 5px;
+    font-weight: 400;
+}
+
+.dashboard-customersGraphHeading {
+    font-weight: 500;
+    display: flex;
+    width: 80px;
+    align-items: center;
+    cursor: pointer;
+    padding: 30px 0px 10px 10px;
+    position: relative;
+}
+
+.dashboard-customersGraphHeadingOption {
+    position: absolute;
+    top: 60px;
+    /* padding: 4px; */
+    z-index: 4;
+    border-radius: 4px;
+    height: 0px;
+    overflow: hidden;
+    width: 80px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    opacity: 0; /* Hide initially */
+    background-color: #fff;
+    transition: opacity 0.3s ease, height 0.3s ease; /* Smooth transition */
+}
+
+.dashboard-customersGraphHeading:hover .dashboard-customersGraphHeadingOption {
+    height: 24px; /* Allows the element to expand */
+    opacity: 1; /* Make visible */
+    padding: 4px; /* Add padding when visible */
+}
+
+.dashboard-customersGraphBlock {
+    grid-area: customersGraphBlock;
+    /* border-left: 1px solid; */
+}
+
+.dashboard-customerByAgeBlock {
+    grid-area: customerByAgeBlock;
+    padding: 10px
+}
+
+.dashboard-generateBtn {
+    grid-area: generateBtn;
+    display: flex;
+    justify-content: center;
+    margin-top: 10px
+    
+}
+
+.dashboard-generateBtn button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #4643d3;
+    color: #fff;
+    font-size: 14px;
+    font-weight: 500;
+    outline: none;
+    border: none;
+    border-radius: 6px;
+    /* width: 30%; */
+    transition: background-color 0.5s, transform 0.3s ;
+}
+
+.dashboard-generateBtn button svg {
+    font-size: 14px;
+    margin-right: 10px;
+    color: #fff;
+    border-radius: 4px;
+}
+
+
+.dashboard-customersGraphContainer {
+    width: 160px;
+    height: 160px;
+    margin-left: 40px
+}
+
+.dashboard-customerByAgeHeading {
+    text-align: center;
+    margin-top: 30px;
+    font-weight: 700;
+    font-size: 18px;
+    text-decoration: underline;
+}
+
+.dashboard-customerByAge {
+    display: flex;
+    justify-content: space-between;
+    text-align: center;
+    margin-top: 20px;
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.dashboard-customerByAge-Number {
+    color: #726fe4;
+    font-size: 24px;
+}
+
+.dashboard-generateBtn button:hover {
+    background-color: #232197;
+    transform: scale(1.05);
+}
+
+@media (max-width: 998px) {
+    .dashboard-customerByAge {
+        margin-top: 16px;
+        font-size: 14px;
+    }
+    
+    .dashboard-customerByAge-Number {
+        font-size: 20px;
+    }
+    
+    .dashboard-customerByAgeHeading {
+        font-size: 16px;
+    }
+
+
+    .dashboard-createCustomerBlock button,
+    .dashboard-generateBtn button{
+        font-size: 12px;
+        font-weight: 400;
+    }
+
+    .dashboard-totalCustomer, 
+    .dashboard-totalCustomerGender {
+        font-size: 16px;
+    }
+    
+
+    .dashboard-totalCustomer span,
+    .dashboard-totalCustomerGender span {
+        font-size: 30px;
+    }
+    
+
+    .dashboard-customersGraphHeading {
+        width: 80px;
+        font-size: 14px;
+    }
+    
+    .dashboard-customersGraphHeadingOption {
+        font-size: 14px;
+        top: 55px;
+        width: 70px;
+    }
+
+    .dashboard-customersGraphHeading:hover .dashboard-customersGraphHeadingOption {
+        height: 20px; /* Allows the element to expand */
+        width: 70px;
+    }
+    
+    .dashboard-customersGraphContainer {
+        width: 140px;
+        height: 140px;
+        margin-left: 0px
+    }
+
+}
+
+@media (max-width: 698px) {
+    .dashboard-container {
+        grid-template-columns: 1fr;
+        grid-template-areas: 
+            "createCustomerBtn"
+            "totalCustomerBlock"
+            "customersGraphBlock"
+            "customerByAgeBlock"
+            "generateBtn";
+    }
+
+    .dashboard-totalCustomerBlock {
+        padding: 0
+    }
+
+    .dashboard-totalCustomer {
+        margin-bottom: 20px;
+    }
+    
+    .dashboard-totalCustomerGender {
+        justify-content: flex-start;
+    }
+    
+    .dashboard-totalCustomerGender div:last-child {
+        margin-left: 20px
+    }
+    
+    .dashboard-customersGraphBlock {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .dashboard-customersGraphHeading {
+        padding: 30px 10px 10px 10px;
+    }
+     
+    
+    .dashboard-customersGraphContainer {
+        width: 140px;
+        height: 140px;
+        margin-left: 0px
+    }
+
+    
+}
