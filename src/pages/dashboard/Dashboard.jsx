@@ -28,10 +28,10 @@ const Dashboard = () => {
           </button>
         </div>
         <div className='dashboard-totalCustomerBlock'>
-          <div className='dashboard-totalCustomer'>Total customers: <span>57</span></div>
+          <div className='dashboard-totalCustomer'>Total Customers: <span>57</span></div>
           <div className='dashboard-totalCustomerGender'>
-            <div>Total males: <span>07</span></div>
-            <div>Total females: <span>17</span></div>
+            <div>Total Males: <span>07</span></div>
+            <div>Total Females: <span>17</span></div>
           </div>
         </div>
         <div className='dashboard-customersGraphBlock'>

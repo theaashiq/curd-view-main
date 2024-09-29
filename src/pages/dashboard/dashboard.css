@@ -237,6 +237,11 @@
 }
 
 @media (max-width: 698px) {
+    .dashboard-generateBtn button {
+        width: 100%;
+        margin-top: 20px;
+    }
+
     .dashboard-container {
         grid-template-columns: 1fr;
         grid-template-areas: 
