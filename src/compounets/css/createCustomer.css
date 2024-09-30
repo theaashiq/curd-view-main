@@ -1,4 +1,6 @@
-.createCustomer-container {
+.createCustomer-container,
+.generateReport-container,
+.customerDelete-container {
     position: fixed;
     width: calc(100% - 240px);
     height: 100vh;
@@ -10,7 +12,9 @@
     animation: fadeIn 0.5s ease-in-out forwards;
 }
 
-.createCustomer {
+.createCustomer,
+.generateReport,
+.customerDelete-Block {
     background-color: #fff;
     padding: 10px;
     border-radius: 4px;
@@ -49,7 +53,9 @@
     font-size: 18px;
 }
 
-.createCustomer-header svg {
+.createCustomer-header svg,
+.generateReport-header svg,
+.customerDelete-header svg{
     font-size: 16px;
     background-color: #e6e6e6;
     border-radius: 50%;
@@ -57,7 +63,9 @@
     transition: background-color 0.5s;
 }
 
-.createCustomer-header svg:hover {
+.createCustomer-header svg:hover,
+.generateReport-header svg:hover,
+.customerDelete-header svg:hover {
     background-color: #bfbfbf;
 }
 
@@ -137,8 +145,16 @@
     font-size: 14px;
 }
 
+
+.createCustomer-btns button:hover {
+    background-color: #d9d9d9;
+    font-size: 14px;
+}
+
 @media (max-width: 998px) {
-    .createCustomer-container {
+    .createCustomer-container,
+    .generateReport-container,
+    .customerDelete-container {
         width: 100%
     }
 

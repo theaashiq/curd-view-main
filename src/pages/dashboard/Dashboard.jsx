@@ -7,12 +7,19 @@ import CreateCustomer from '../../compounets/createCustomer';
 import './dashboard.css'
 import { MainContext } from '../../context/mainContext.jsx';
 import { useNavigate } from 'react-router-dom';
+import GenerateReport from '../../compounets/GenerateReport.jsx'
 
 const Dashboard = () => {
 
-  const { createCustomerToggle, setCreateCustomerToggle } = useContext(MainContext)
+const { 
+  createCustomerToggle, 
+  setCreateCustomerToggle,
+  generateReportToggle , 
+  setGenerateReportToggle,  
+} = useContext(MainContext)
 
   const navigate = useNavigate()
+
 
   const pieChartData = [
     {
@@ -43,7 +50,9 @@ const Dashboard = () => {
           <button onClick={() => handleCreateCustomer()}>
             <AddIcon/> Create Customer
           </button>
-          <button style={{backgroundColor: '#ffb600'}}>
+          <button
+            onClick={() => setGenerateReportToggle(true)} 
+            style={{backgroundColor: '#ffb600'}}>
               <InsertDriveFileIcon style={{backgroundColor:'transparent'}}/> Generate Report
           </button>
         </div>
@@ -99,6 +108,9 @@ const Dashboard = () => {
       </div>
 
       {createCustomerToggle && <CreateCustomer/>}
+
+      {generateReportToggle 
+        && <GenerateReport setGenerateReportToggle={setGenerateReportToggle}/>}
     </>
     )
 }

@@ -1,0 +1,72 @@
+.generateReport-header {
+    width: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.generateReport-options {
+    display: flex;
+    justify-content: space-around;
+    margin: 40px 0px;
+}
+
+.generateReport-options div {
+    display: flex;
+    align-items: center;
+}
+
+.generateReport-options div label {
+    margin-left: 5px;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.generateReport-btns {
+    display: flex;
+    justify-content: space-between;
+    padding: 5px 30px;
+}
+
+.generateReport-btns button {
+    font-size: 14px;
+    padding: 10px 15px;
+    background-color:#ffb600;
+    color: #fff;
+    transition: transform 0.5s, background-color 0.5s
+}
+
+.generateReport-btns button:first-child {
+    background-color: #d9d9d9 !important
+}
+
+.generateReport-btns button:first-child:hover {
+    background-color: #a6a6a6 !important
+}
+
+.generateReport-btns button:last-child:hover {
+    background-color: #e6a400;
+    transform: scale(1.05)
+}
+
+@media (max-width: 998px) {
+    .generateReport-header {
+        font-size: 16px;
+        width: 60vw;
+    }
+
+    .generateReport-options {
+        margin: 20px;
+    }
+
+    .generateReport-options div label {
+        font-size: 12px;
+    }
+
+    .generateReport-btns button {
+        font-size: 12px;
+        padding: 5px 15px;
+    }
+}

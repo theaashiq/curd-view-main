@@ -9,6 +9,7 @@ const { setCreateCustomerToggle } = useContext(MainContext)
 const [ customerDetailsInput,  setCustomerDetails ] = useState({
     name: ""
 })
+
   return (
     <>
         <div className='createCustomer-container'>

@@ -1,15 +1,25 @@
-import React, { useContext, useEffect } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import AddIcon from '@mui/icons-material/Add';
 import SearchIcon from '@mui/icons-material/Search';
 import './customers.css'
 import CustomersList from './customersList';
 import { MainContext } from '../../context/mainContext.jsx';
 import CreateCustomer from '../../compounets/createCustomer';
+import InsertDriveFileIcon from '@mui/icons-material/InsertDriveFile';
+import GenerateReport from '../../compounets/GenerateReport.jsx'
 
 const Customers = () => {
-  const { createCustomerToggle, setCreateCustomerToggle } = useContext(MainContext)
+
+const { 
+  createCustomerToggle, 
+  setCreateCustomerToggle,
+  generateReportToggle , 
+  setGenerateReportToggle,  
+} = useContext(MainContext)
 
   let value = [1, 2, 3, 4, 5, 8]
+
+ 
 
   const handleCreateCustomer = () => {
     setCreateCustomerToggle(true); // Toggle the state
@@ -30,6 +40,11 @@ const Customers = () => {
           <div>
             <input type='text' placeholder='Search by name or email'/> <SearchIcon/>
           </div>
+          <button
+            onClick={() => setGenerateReportToggle(true)} 
+            style={{backgroundColor: '#ffb600', marginLeft:'auto'}}>
+              <InsertDriveFileIcon style={{backgroundColor:'transparent'}}/> Generate Report
+          </button>
         </div>
         <div style={{marginTop:'20px'}}>
           {value.map(val => <CustomersList/>)}
@@ -37,6 +52,9 @@ const Customers = () => {
       </div>
 
       {createCustomerToggle && <CreateCustomer/>}
+    
+      {generateReportToggle 
+        && <GenerateReport setGenerateReportToggle={setGenerateReportToggle}/>}
     
     </>
   )

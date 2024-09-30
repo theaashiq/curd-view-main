@@ -31,4 +31,37 @@
         font-size: 14px;
         width: 85%;
     }
+
+    .customer-header {
+        display: grid;
+        grid-template-column: 1fr 1fr;
+        grid-template-areas: 
+            "createCustomer generateReport"
+            "searchBlock searchBlock"
+    } 
+
+    .customer-header button:first-child {
+        grid-area: createCustomer;
+        width: fit-content
+    }
+
+    
+    .customer-header button:last-child {
+        grid-area: generateReport
+    }
+
+    .customer-header div {
+        grid-area: searchBlock;
+        margin-left: 0px;
+        margin-top: 10px;
+        height: 30px;
+    }
+
+    .customer-header div input {
+        width: 90%
+    }
+
+    .customer-header div svg {
+        font-size: 20px;
+    }
 }
