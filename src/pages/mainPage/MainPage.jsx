@@ -11,7 +11,7 @@ const location = useLocation()
 
 const [ sideBarToggle, setSideBarToggle ] = useState(false)
 const [ sectionHeading, setSectionHeading ] = useState(location.pathname.split('/')[1])
-
+const [ createCustomerToggle, setCreateCustomerToggle ] = useState(false)
 
 useEffect(() => {
   setSectionHeading(location.pathname.split('/')[1])
@@ -35,7 +35,9 @@ useEffect(() => {
             {sectionHeading}
           </div>
           <section className='mainPage-section-container'>
-            <Outlet/>
+            <Outlet 
+              createCustomerToggle={createCustomerToggle} 
+              setCreateCustomerToggle={setCreateCustomerToggle}/>
           </section>
         </article>
       </main>

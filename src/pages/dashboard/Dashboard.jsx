@@ -1,11 +1,17 @@
-import React from 'react'
+import React, { useContext, useState } from 'react'
 import AddIcon from '@mui/icons-material/Add';
 import InsertDriveFileIcon from '@mui/icons-material/InsertDriveFile';
-import './dashboard.css'
 import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
 import { ResponsivePie } from '@nivo/pie';
+import CreateCustomer from '../../compounets/createCustomer';
+import './dashboard.css'
+import { MainContext } from '../../context/mainContext.jsx';
 
 const Dashboard = () => {
+
+  const { createCustomerToggle, setCreateCustomerToggle } = useContext(MainContext)
+
+  console.log(createCustomerToggle, 'STATE')
 
   const pieChartData = [
     {
@@ -20,10 +26,15 @@ const Dashboard = () => {
     },
   ];
 
+  const handleCreateCustomer = () => {
+    setCreateCustomerToggle(true); // Toggle the state
+  };
+
   return (
+    <>
       <div className='dashboard-container'>
         <div className='dashboard-createCustomerBlock'>
-          <button>
+          <button onClick={() => handleCreateCustomer()}>
             <AddIcon/> Create Customer
           </button>
         </div>
@@ -76,6 +87,9 @@ const Dashboard = () => {
             </button>
         </div>
       </div>
+
+      {createCustomerToggle && <CreateCustomer/>}
+    </>
     )
 }
 

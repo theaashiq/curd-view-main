@@ -1,0 +1,23 @@
+.createCustomer-container {
+    position: fixed;
+    width: calc(100% - 240px);
+    height: 100vh;
+    display: grid;
+    top: 0;
+    right: 0;
+    place-items: center;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.createCustomer-block {
+    background-color: #fff;
+    padding: 10px;
+    border-radius: 4px;
+
+}
+
+@media (max-width: 998px) {
+    .createCustomer-container {
+        width: 100%
+    }
+}
