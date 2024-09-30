@@ -55,7 +55,7 @@ button {
   transition: border-color 0.25s;
 }
 
-input {
+input, select {
   font-family: "Montserrat", sans-serif
 }
 /* button:hover {

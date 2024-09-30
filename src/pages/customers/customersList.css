@@ -27,7 +27,7 @@
 .customerList-Details {
     display: grid;
     margin-top: 10px;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
     font-size: 14px;
     font-weight: 600;
 }
@@ -36,6 +36,10 @@
     display: block;
     font-size: 12px;
     font-weight: 500;
+}
+
+.customerList-Details div {
+    margin-bottom: 10px;
 }
 
 @media (max-width: 1198px) {
