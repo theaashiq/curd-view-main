@@ -16,7 +16,8 @@
     /* border: 1px solid; */
 }
 
-.dashboard-createCustomerBlock button {
+.dashboard-createCustomerBlock button,
+.customer-header button {
     display: flex;
     align-items: center;
     background-color: #4643d3;
@@ -30,7 +31,8 @@
     -webkit-tap-highlight-color: transparent;
 }
 
-.dashboard-createCustomerBlock button svg {
+.dashboard-createCustomerBlock button svg,
+.customer-header button svg {
     background-color: #8f8de4;
     font-size: 14px;
     margin-right: 10px;
@@ -38,7 +40,8 @@
     border-radius: 4px;
 }
 
-.dashboard-createCustomerBlock button:hover {
+.dashboard-createCustomerBlock button:hover,
+.customer-header button:hover {
     background-color: #232197;
     transform: scale(1.05);
 }
@@ -204,7 +207,8 @@
 
 
     .dashboard-createCustomerBlock button,
-    .dashboard-generateBtn button{
+    .dashboard-generateBtn button,
+    .customer-header button{
         font-size: 12px;
         font-weight: 400;
     }

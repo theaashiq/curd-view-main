@@ -24,7 +24,7 @@ const Dashboard = () => {
       <div className='dashboard-container'>
         <div className='dashboard-createCustomerBlock'>
           <button>
-            <AddIcon/> Create Customers
+            <AddIcon/> Create Customer
           </button>
         </div>
         <div className='dashboard-totalCustomerBlock'>
