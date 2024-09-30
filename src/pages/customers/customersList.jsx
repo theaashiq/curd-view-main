@@ -1,15 +1,19 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import EditIcon from '@mui/icons-material/Edit';
 import DeleteIcon from '@mui/icons-material/Delete';
+import { MainContext } from '../../context/mainContext';
 import './customersList.css'
 
 const CustomersList = () => {
+
+const { createCustomerToggle, setCreateCustomerToggle } = useContext(MainContext)
+
   return (
     <div className='customerList-Block'>
         <div className='customerList-header'> 
             Christian Espinoza
             <div>
-                <EditIcon/>
+                <EditIcon onClick={() => setCreateCustomerToggle(true)}/>
                 <DeleteIcon/>
             </div>
         </div>

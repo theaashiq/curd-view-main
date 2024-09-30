@@ -27,7 +27,7 @@
 .mainPage-container article {
     grid-area: article;
     opacity: 0; /* Start hidden */
-    animation: fadeIn 2s ease-in-out forwards; /* 2 seconds fade-in */
+    animation: fadeIn 0.5s ease-in-out forwards; /* 2 seconds fade-in */
 }
 
 .mainPage-headerBlock {
@@ -97,6 +97,15 @@
     }
     to {
       transform: translateX(0); /* End at the final position */
+    }
+  }
+
+  @keyframes slideFromTop {
+    from {
+      transform: translateY(-300px); /* Start off-screen from the left */
+    }
+    to {
+      transform: translateY(0); /* End at the final position */
     }
   }
 
