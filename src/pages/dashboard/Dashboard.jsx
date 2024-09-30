@@ -16,10 +16,13 @@ const Dashboard = () => {
     setCreateCustomerToggle,
     generateReportToggle,
     setGenerateReportToggle,
+    fetchedData
   } = useContext(MainContext)
 
   const navigate = useNavigate()
 
+
+  console.log(fetchedData, 'FETCH DATA')
 
   const pieChartData = [
     {
