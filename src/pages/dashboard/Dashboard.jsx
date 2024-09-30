@@ -7,7 +7,7 @@ import CreateCustomer from '../../compounets/createCustomer';
 import './dashboard.css'
 import { MainContext } from '../../context/mainContext.jsx';
 import { useNavigate } from 'react-router-dom';
-import GenerateReport from '../../compounets/GenerateReport.jsx'
+import GenerateReport from '../../compounets/GenerateReport'
 
 const Dashboard = () => {
 
