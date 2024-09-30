@@ -159,4 +159,8 @@
     .createCustomer-block div p {
         font-size: 10px;
     }
+
+    .createCustomer-block div input {
+        font-size: 14px;
+    }
 }
