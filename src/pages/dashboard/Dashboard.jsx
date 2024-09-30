@@ -12,7 +12,7 @@ const Dashboard = () => {
 
   const { createCustomerToggle, setCreateCustomerToggle } = useContext(MainContext)
 
-  const navigate = useNavigate
+  const navigate = useNavigate()
 
   const pieChartData = [
     {

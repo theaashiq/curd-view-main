@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import React, { useContext, useEffect } from 'react'
 import AddIcon from '@mui/icons-material/Add';
 import SearchIcon from '@mui/icons-material/Search';
 import './customers.css'
@@ -14,6 +14,11 @@ const Customers = () => {
   const handleCreateCustomer = () => {
     setCreateCustomerToggle(true); // Toggle the state
   };
+
+
+  useEffect(() => {
+    window.scrollTo(0, 0); // Scroll to the top of the page
+  }, []); // Empty dependency array ensures this runs only once when component mounts
 
   return (
     <>
