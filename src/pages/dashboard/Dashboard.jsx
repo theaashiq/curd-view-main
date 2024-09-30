@@ -6,24 +6,30 @@ import { ResponsivePie } from '@nivo/pie';
 import CreateCustomer from '../../compounets/createCustomer';
 import './dashboard.css'
 import { MainContext } from '../../context/mainContext.jsx';
+import { useNavigate } from 'react-router-dom';
 
 const Dashboard = () => {
 
   const { createCustomerToggle, setCreateCustomerToggle } = useContext(MainContext)
 
-  console.log(createCustomerToggle, 'STATE')
+  const navigate = useNavigate
 
   const pieChartData = [
     {
       id: 'Male',
-      label: 'Male',
+      label: 'Males',
       value: 7
     },
     {
       id: 'Female',
-      label: 'Female',
+      label: 'Females',
       value: 17
     },
+    {
+      id: 'Others',
+      label: 'Others',
+      value: 4
+    }
   ];
 
   const handleCreateCustomer = () => {
@@ -37,12 +43,16 @@ const Dashboard = () => {
           <button onClick={() => handleCreateCustomer()}>
             <AddIcon/> Create Customer
           </button>
+          <button style={{backgroundColor: '#ffb600'}}>
+              <InsertDriveFileIcon style={{backgroundColor:'transparent'}}/> Generate Report
+          </button>
         </div>
         <div className='dashboard-totalCustomerBlock'>
-          <div className='dashboard-totalCustomer'>Total Customers: <span>57</span></div>
+          <div className='dashboard-totalCustomer'>Customers: <span>57</span></div>
           <div className='dashboard-totalCustomerGender'>
-            <div>Total Males: <span>07</span></div>
-            <div>Total Females: <span>17</span></div>
+            <div>Males: <span>07</span></div>
+            <div>Females: <span>17</span></div>
+            <div>Others: <span>04</span></div>
           </div>
         </div>
         <div className='dashboard-customersGraphBlock'>
@@ -82,9 +92,9 @@ const Dashboard = () => {
           </div>
         </div>
         <div className='dashboard-generateBtn'>
-            <button>
-              <InsertDriveFileIcon/> Generate Report
-            </button>
+          <button  onClick={() => navigate('/customers')}>
+            View Customers
+          </button>
         </div>
       </div>
 

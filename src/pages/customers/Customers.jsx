@@ -33,7 +33,6 @@ const Customers = () => {
 
       {createCustomerToggle && <CreateCustomer/>}
     
-    
     </>
   )
 }
