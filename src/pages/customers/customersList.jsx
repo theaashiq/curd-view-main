@@ -2,7 +2,7 @@ import React, { useContext, useState } from 'react'
 import EditIcon from '@mui/icons-material/Edit';
 import DeleteIcon from '@mui/icons-material/Delete';
 import { MainContext } from '../../context/mainContext';
-import CustomerDelete from './customerDelete.jsx';
+import CustomerDelete from './CustomerDelete.jsx';
 import './customersList.css'
 
 const CustomersList = () => {
