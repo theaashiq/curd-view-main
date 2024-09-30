@@ -7,16 +7,16 @@ import CreateCustomer from '../../compounets/createCustomer';
 import './dashboard.css'
 import { MainContext } from '../../context/mainContext.jsx';
 import { useNavigate } from 'react-router-dom';
-import GenerateReport from '../../compounets/GenerateReport'
+import GenerateReport from '../../compounets/generateReport.jsx'
 
 const Dashboard = () => {
 
-const { 
-  createCustomerToggle, 
-  setCreateCustomerToggle,
-  generateReportToggle , 
-  setGenerateReportToggle,  
-} = useContext(MainContext)
+  const {
+    createCustomerToggle,
+    setCreateCustomerToggle,
+    generateReportToggle,
+    setGenerateReportToggle,
+  } = useContext(MainContext)
 
   const navigate = useNavigate()
 
@@ -48,12 +48,12 @@ const {
       <div className='dashboard-container'>
         <div className='dashboard-createCustomerBlock'>
           <button onClick={() => handleCreateCustomer()}>
-            <AddIcon/> Create Customer
+            <AddIcon /> Create Customer
           </button>
           <button
-            onClick={() => setGenerateReportToggle(true)} 
-            style={{backgroundColor: '#ffb600'}}>
-              <InsertDriveFileIcon style={{backgroundColor:'transparent'}}/> Generate Report
+            onClick={() => setGenerateReportToggle(true)}
+            style={{ backgroundColor: '#ffb600' }}>
+            <InsertDriveFileIcon style={{ backgroundColor: 'transparent' }} /> Generate Report
           </button>
         </div>
         <div className='dashboard-totalCustomerBlock'>
@@ -66,16 +66,16 @@ const {
         </div>
         <div className='dashboard-customersGraphBlock'>
           <div className='dashboard-customersGraphHeading'>
-            Gender <ArrowDropDownIcon/>
+            Gender <ArrowDropDownIcon />
             <div className='dashboard-customersGraphHeadingOption'>
               Age
-            </div>  
+            </div>
           </div>
           <div className='dashboard-customersGraphContainer'>
             <ResponsivePie
               data={pieChartData}
               innerRadius={0.5}
-              enableArcLinkLabels={false}/>
+              enableArcLinkLabels={false} />
           </div>
         </div>
         <div className='dashboard-customerByAgeBlock'>
@@ -101,18 +101,18 @@ const {
           </div>
         </div>
         <div className='dashboard-generateBtn'>
-          <button  onClick={() => navigate('/customers')}>
+          <button onClick={() => navigate('/customers')}>
             View Customers
           </button>
         </div>
       </div>
 
-      {createCustomerToggle && <CreateCustomer/>}
+      {createCustomerToggle && <CreateCustomer />}
 
-      {generateReportToggle 
-        && <GenerateReport setGenerateReportToggle={setGenerateReportToggle}/>}
+      {generateReportToggle
+        && <GenerateReport setGenerateReportToggle={setGenerateReportToggle} />}
     </>
-    )
+  )
 }
 
 export default Dashboard
