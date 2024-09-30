@@ -6,7 +6,7 @@ import CustomersList from './customersList';
 import { MainContext } from '../../context/mainContext.jsx';
 import CreateCustomer from '../../compounets/createCustomer';
 import InsertDriveFileIcon from '@mui/icons-material/InsertDriveFile';
-import GenerateReport from '../../compounets/GenerateReport.jsx'
+import GenerateReport from '../../compounets/GenerateReport'
 
 const Customers = () => {
 
