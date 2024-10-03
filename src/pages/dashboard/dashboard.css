@@ -50,51 +50,56 @@
 
 .dashboard-totalCustomerBlock {
     grid-area: totalCustomerBlock;
-    padding: 0px 100px 0px 10px;
+    padding: 10px 100px 0px 10px;
     /* border: 1px solid; */
 }
 
 .dashboard-totalCustomer {
     margin-bottom: 80px;
-    font-size: 18px;
+    font-size: 16px;
     font-weight: 500;
 }
 
 .dashboard-totalCustomerGender {
     display: flex;
     justify-content: space-between;
-    font-size: 18px;
+    font-size: 16px;
     font-weight: 500;
 }
 
 .dashboard-totalCustomer span,
 .dashboard-totalCustomerGender span {
-    font-size: 44px;
+    font-size: 34px;
     color: #726fe4;
     margin-left: 5px;
-    font-weight: 400;
+    font-weight: 500;
 }
 
 .dashboard-customersGraphHeading {
-    font-weight: 500;
+    font-weight: 600;
     display: flex;
-    width: 80px;
+    width: 90px;
     align-items: center;
+    justify-content: center;
     cursor: pointer;
-    padding: 30px 0px 10px 10px;
+    padding: 0px 0px 10px 10px;
     position: relative;
     -webkit-tap-highlight-color: transparent;
 }
 
 .dashboard-customersGraphHeadingOption {
     position: absolute;
-    top: 60px;
+    top: 26px;
     /* padding: 4px; */
     z-index: 4;
     border-radius: 4px;
+    font-size: 14px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     height: 0px;
     overflow: hidden;
-    width: 80px;
+    width: 90px;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
     opacity: 0; /* Hide initially */
     background-color: #fff;
@@ -111,7 +116,6 @@
 
 .dashboard-customersGraphHeadingOption:hover {
     color: #3330b5;
-    font-weight: 600;
 }
 
 .dashboard-customersGraphBlock {
@@ -121,14 +125,14 @@
 
 .dashboard-customerByAgeBlock {
     grid-area: customerByAgeBlock;
-    padding: 10px
+    padding: 10px;
 }
 
 .dashboard-generateBtn {
     grid-area: generateBtn;
     display: flex;
     justify-content: center;
-    margin-top: 30px
+    margin: 15px;
 }
 
 .dashboard-generateBtn button {
@@ -173,7 +177,7 @@
     text-align: center;
     margin-top: 30px;
     font-weight: 700;
-    font-size: 18px;
+    font-size: 16px;
     text-decoration: underline;
 }
 
@@ -182,13 +186,13 @@
     justify-content: space-between;
     text-align: center;
     margin-top: 20px;
-    font-size: 18px;
-    font-weight: 500;
+    font-size: 14px;
+    font-weight: 600;
 }
 
 .dashboard-customerByAge-Number {
     color: #726fe4;
-    font-size: 24px;
+    font-size: 20px;
 }
 
 .dashboard-generateBtn button:hover {
@@ -197,12 +201,8 @@
     transform: scale(1.05);
 }
 
-hr {
-    border: 1px solid #000; /* Black line */
-    margin: 20px 0; /* Space above and below */
-  }
-
 @media (max-width: 998px) {
+
     .dashboard-customerByAge {
         flex-direction: column;
         margin-top: 16px;
@@ -247,7 +247,7 @@ hr {
     }
     
     .dashboard-customersGraphHeadingOption {
-        font-size: 14px;
+        font-size: 12px;
         top: 55px;
         width: 70px;
     }

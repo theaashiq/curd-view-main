@@ -14,11 +14,10 @@ export const MainProvider = ({children}) => {
         try {
             const data = await fetchData(); 
             setdashBoardData(data.dashboard); 
+            setLoading(false)
         } catch (err) {
             console.error('Error fetching data:', err); 
-        } finally {
-            setLoading(false); 
-        }
+        } 
     };
 
     useEffect(() => {
