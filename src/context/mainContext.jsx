@@ -6,16 +6,23 @@ export const MainContext = createContext()
 export const MainProvider = ({children}) => {
     const [ createCustomerToggle, setCreateCustomerToggle ] = useState(false)
     const [ generateReportToggle , setGenerateReportToggle ] = useState(false)
-    const [ fetchedData, setFetchedData ] = useState({})
+    const [ loading, setLoading ] = useState(false)
+    const [ dashBoardData, setdashBoardData ] = useState({})
+
+    const getData = async () => {
+        setLoading(true); 
+        try {
+            const data = await fetchData(); 
+            setdashBoardData(data.dashboard); 
+        } catch (err) {
+            console.error('Error fetching data:', err); 
+        } finally {
+            setLoading(false); 
+        }
+    };
 
     useEffect(() => {
-        fetchData()
-            .then((data) => {
-                setFetchedData(data)
-            })
-            .catch((err) => {
-                console.err('Error fetching data:', err)
-            })
+        getData()
     },[])
 
     return (
@@ -25,7 +32,9 @@ export const MainProvider = ({children}) => {
                 setCreateCustomerToggle,
                 generateReportToggle , 
                 setGenerateReportToggle,
-                fetchedData 
+                dashBoardData,
+                getData,
+                loading 
             }}>
             {children}
         </MainContext.Provider>

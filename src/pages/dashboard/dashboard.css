@@ -110,7 +110,8 @@
 }
 
 .dashboard-customersGraphHeadingOption:hover {
-    border: 1px solid #4643d3;
+    color: #3330b5;
+    font-weight: 600;
 }
 
 .dashboard-customersGraphBlock {
@@ -159,8 +160,14 @@
 .dashboard-customersGraphContainer {
     width: 160px;
     height: 160px;
-    margin-left: 40px
+    margin-left: 70px;
+    margin-top: 20px 
 }
+
+.dashboard-customersGraphContainer  svg {
+    overflow: visible;
+}
+
 
 .dashboard-customerByAgeHeading {
     text-align: center;
