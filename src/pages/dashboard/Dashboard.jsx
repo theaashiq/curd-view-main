@@ -88,6 +88,8 @@ const Dashboard = () => {
     setCreateCustomerToggle(true); // Toggle the state
   };
 
+  const state = 'create'
+
   return (
     <>
       {loading 
@@ -180,7 +182,7 @@ const Dashboard = () => {
             </div>
           </div> }
 
-      {createCustomerToggle && <CreateCustomer />}
+      {createCustomerToggle && <CreateCustomer state={state} />}
 
       {generateReportToggle
         && <GenerateReport setGenerateReportToggle={setGenerateReportToggle} />}
