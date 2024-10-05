@@ -8,12 +8,15 @@ export const MainProvider = ({children}) => {
     const [ generateReportToggle , setGenerateReportToggle ] = useState(false)
     const [ loading, setLoading ] = useState(false)
     const [ dashBoardData, setdashBoardData ] = useState({})
+    const [ customersData, setCustomersData ] = useState([])
 
     const getData = async () => {
         setLoading(true); 
         try {
             const data = await fetchData(); 
+            console.log(data, 'Data')
             setdashBoardData(data.dashboard); 
+            setCustomersData(data.customers)
             setLoading(false)
         } catch (err) {
             console.error('Error fetching data:', err); 
@@ -33,7 +36,8 @@ export const MainProvider = ({children}) => {
                 setGenerateReportToggle,
                 dashBoardData,
                 getData,
-                loading 
+                loading,
+                customersData 
             }}>
             {children}
         </MainContext.Provider>

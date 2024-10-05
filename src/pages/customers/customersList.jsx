@@ -5,17 +5,54 @@ import { MainContext } from '../../context/mainContext';
 import CustomerDelete from './CustomerDelete.jsx';
 import './customersList.css'
 
-const CustomersList = () => {
+const CustomersList = (props) => {
+
+const {
+    firstName,
+    lastName, 
+    dob,
+    age,
+    gender,
+    phoneNumber,
+    email,
+    customerId, 
+    createdAt,
+    lastUpdatedAt
+} = props
 
 const { createCustomerToggle, setCreateCustomerToggle } = useContext(MainContext)
 
 const [ deleteToggle, setDeleteToggle ] = useState(false)
 
+
+function formatDate(isoDateStr) {
+    const date = new Date(isoDateStr);
+    const day = date.getDate();
+    const month = date.toLocaleString('en-US', { month: 'short' });
+    const year = date.getFullYear();
+
+    return `${day} ${month} ${year}`;
+}
+
+function formatDateTime(isoDateStr) {
+    console.log(isoDateStr, 'Date')
+    const date = new Date(isoDateStr);
+    const day = date.getDate();
+    const month = date.toLocaleString('en-US', { month: 'short' });
+    const year = date.getFullYear();
+    const hours = date.getHours().toString().padStart(2, '0'); 
+    const minutes = date.getMinutes().toString().padStart(2, '0'); 
+
+    return `${day}-${month}-${year} at ${hours}.${minutes}`;
+}
+
+
+
   return (
     <React.Fragment>
-        <div className='customerList-Block'>
+        <div className='customerList-Block' style={{position:'relative'}}>
             <div className='customerList-header'> 
-                Christian Espinoza
+                {firstName} {lastName}
                 <div>
                     <EditIcon onClick={() => setCreateCustomerToggle(true)}/>
                     <DeleteIcon onClick={() => setDeleteToggle(true)}/>
@@ -23,23 +60,27 @@ const [ deleteToggle, setDeleteToggle ] = useState(false)
             </div>
             <div className='customerList-Details'>
                 <div>
-                    Date of Birth <span>17.07.1994</span>
+                    Date of Birth <span>{formatDate(dob)}</span>
                 </div>
                 <div>
-                    Age <span>28</span>
+                    Age <span>{age}</span>
                 </div>
                 <div>
-                    Gender <span>Male</span>
+                    Gender <span style={{textTransform:'capitalize'}}>{gender}</span>
                 </div>
                 <div>
-                    Phone Number <span>+91 9448343941</span>
+                    Phone Number <span>+91 {phoneNumber}</span>
                 </div>
                 <div>
-                    Email <span>mdaashiqin2000@gmail.com</span>
+                    Email <span>{email}</span>
                 </div>
                 <div>
-                    Bank Account Number <span>987654213562897</span>
+                    Customer Id <span>{customerId}</span>
                 </div>
+            </div>
+            <div className='customerList-createdDetails'>
+                <div>Created on {formatDateTime(createdAt)}</div>
+                {lastUpdatedAt && <div>Last updated on {formatDateTime(lastUpdatedAt)}</div>}
             </div>
         </div>
 

@@ -15,6 +15,7 @@ const Customers = () => {
     setCreateCustomerToggle,
     generateReportToggle,
     setGenerateReportToggle,
+    customersData
   } = useContext(MainContext)
 
   let value = [1, 2, 3, 4, 5, 8]
@@ -26,6 +27,7 @@ const Customers = () => {
   };
 
 
+  console.log(customersData, 'Data')
   useEffect(() => {
     window.scrollTo(0, 0); // Scroll to the top of the page
   }, []); // Empty dependency array ensures this runs only once when component mounts
@@ -47,7 +49,19 @@ const Customers = () => {
           </button>
         </div>
         <div style={{ marginTop: '20px' }}>
-          {value.map(val => <CustomersList />)}
+          {customersData.map(val => 
+            <CustomersList 
+              firstName={val.firstName}
+              lastName={val.lastName}
+              dob={val.dob}
+              age={val.age}
+              gender={val.gender}
+              phoneNumber={val.phoneNumber}
+              email={val.email}
+              customerId={val.customerId}
+              createdAt={val.createdAt}
+              lastUpdatedAt={val.updatedAt}
+              />)}
         </div>
       </div>
 
