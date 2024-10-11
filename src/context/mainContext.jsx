@@ -9,12 +9,13 @@ export const MainProvider = ({children}) => {
     const [ loading, setLoading ] = useState(false)
     const [ dashBoardData, setdashBoardData ] = useState({})
     const [ customersData, setCustomersData ] = useState([])
+    const [ sortByState, setSortByState ] = useState('name')
 
-    const getData = async () => {
+    const getData = async (sortState) => {
         setLoading(true); 
+        const postData = { sortBy: sortState }
         try {
-            const data = await fetchData(); 
-            console.log(data, 'Data')
+            const data = await fetchData(postData); 
             setdashBoardData(data.dashboard); 
             setCustomersData(data.customers)
             setLoading(false)
@@ -24,7 +25,7 @@ export const MainProvider = ({children}) => {
     };
 
     useEffect(() => {
-        getData()
+        getData(sortByState)
     },[])
 
     return (
@@ -37,7 +38,8 @@ export const MainProvider = ({children}) => {
                 dashBoardData,
                 getData,
                 loading,
-                customersData 
+                customersData,
+                sortByState, setSortByState  
             }}>
             {children}
         </MainContext.Provider>

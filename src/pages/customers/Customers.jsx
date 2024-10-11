@@ -15,7 +15,11 @@ const Customers = () => {
     setCreateCustomerToggle,
     generateReportToggle,
     setGenerateReportToggle,
-    customersData
+    customersData,
+    sortByState,
+    setSortByState,
+    getData,
+    loading,
   } = useContext(MainContext)
 
   let value = [1, 2, 3, 4, 5, 8]
@@ -23,14 +27,18 @@ const Customers = () => {
 
 
   const handleCreateCustomer = () => {
-    setCreateCustomerToggle(true); // Toggle the state
+    setCreateCustomerToggle(true); 
   };
-
 
   console.log(customersData, 'Data')
   useEffect(() => {
-    window.scrollTo(0, 0); // Scroll to the top of the page
-  }, []); // Empty dependency array ensures this runs only once when component mounts
+    window.scrollTo(0, 0); 
+  }, []); 
+
+  const handleSort = async (state) => {
+    setSortByState(state)
+    getData(state)
+  }
 
   return (
     <>
@@ -48,20 +56,46 @@ const Customers = () => {
             <InsertDriveFileIcon style={{ backgroundColor: 'transparent' }} /> Generate Report
           </button>
         </div>
+        <div className='customer-sortByBlock'>
+          <div>Sort By</div>
+          <div>
+            <button
+              onClick={() => handleSort('name')} 
+              style={{
+                borderColor: sortByState === 'name' && '#4643d3',
+                backgroundColor: sortByState === 'name' && '#fff',
+                color: sortByState === 'name' && '#4643d3'}}>
+                By Name
+            </button>
+            <button 
+              onClick={() => handleSort('date')} 
+              style={{
+                borderColor: sortByState === 'date' && '#4643d3',
+                backgroundColor: sortByState === 'date' && '#fff',
+                color: sortByState === 'date' && '#4643d3'}}>
+                By Date
+            </button>
+          </div>
+        </div>
         <div style={{ marginTop: '20px' }}>
-          {customersData.map(val => 
-            <CustomersList 
-              firstName={val.firstName}
-              lastName={val.lastName}
-              dob={val.dob}
-              age={val.age}
-              gender={val.gender}
-              phoneNumber={val.phoneNumber}
-              email={val.email}
-              customerId={val.customerId}
-              createdAt={val.createdAt}
-              lastUpdatedAt={val.updatedAt}
-              />)}
+          {loading 
+            ? <div className='loading-container' style={{marginTop:'100px'}}>
+                <img src='loading.gif'/>
+              </div> 
+            : <div>
+                {customersData.map(val => 
+                  <CustomersList 
+                    firstName={val.firstName}
+                    lastName={val.lastName}
+                    dob={val.dob}
+                    age={val.age}
+                    gender={val.gender}
+                    phoneNumber={val.phoneNumber}
+                    email={val.email}
+                    customerId={val.customerId}
+                    createdAt={val.createdAt}
+                    lastUpdatedAt={val.updatedAt} />)}
+              </div>}
         </div>
       </div>
 

@@ -35,13 +35,12 @@ function formatDate(isoDateStr) {
 }
 
 function formatDateTime(isoDateStr) {
-    console.log(isoDateStr, 'Date')
     const date = new Date(isoDateStr);
-    const day = date.getDate();
-    const month = date.toLocaleString('en-US', { month: 'short' });
-    const year = date.getFullYear();
-    const hours = date.getHours().toString().padStart(2, '0'); 
-    const minutes = date.getMinutes().toString().padStart(2, '0'); 
+    const day = date.getUTCDate();
+    const month = date.toLocaleString('en-US', { month: 'short', timeZone: 'UTC' });
+    const year = date.getUTCFullYear();
+    const hours = date.getUTCHours().toString().padStart(2, '0'); 
+    const minutes = date.getUTCMinutes().toString().padStart(2, '0'); 
 
     return `${day}-${month}-${year} at ${hours}.${minutes}`;
 }

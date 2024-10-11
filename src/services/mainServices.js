@@ -1,8 +1,10 @@
 import axiosInstance from "../api/axios";
 
-export const fetchData = async () => {
+export const fetchData = async (postData) => {
     try{
-        const response = await axiosInstance.get('/fetchData')
+        console.log(postData, '/fetchData request')
+        const response = await axiosInstance.post('/fetchData', postData)
+        console.log(response, '/fetchData response')
         return response.data
     } catch(error) {
         console.error(error)

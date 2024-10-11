@@ -22,6 +22,36 @@
     padding-left: 10px;
 }
 
+.customer-sortByBlock {
+    display: flex;
+    margin-top: 20px;
+    align-items: center;
+    font-weight: 600;
+    font-size: 14px;
+}
+
+.customer-sortByBlock div {
+    display: flex;
+    align-items: center;
+    margin-right: 10px;
+}
+
+.customer-sortByBlock div button {
+    padding: 4px 10px;
+    margin-right: 10px;
+    font-size: 12px;
+    font-weight: 600;
+    box-sizing: border-box;
+    transition: border-color 0.5s, color 0.5s, background-color 0.5s;
+    background-color: #f2f2f2;
+    border: 2px solid #f2f2f2;
+}
+
+.customer-sortByBlock div button:hover {
+    background-color: #d9d9d9;
+    border: 2px solid #d9d9d9;
+}
+
 @media (max-width: 698px) {
     .customer-header div {
         width: 100%;
