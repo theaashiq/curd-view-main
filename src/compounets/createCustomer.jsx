@@ -2,7 +2,7 @@ import React, { useContext, useState, useEffect } from 'react'
 import CloseIcon from '@mui/icons-material/Close';
 import './css/createCustomer.css'
 import { MainContext } from '../context/mainContext';
-import { createData } from '../services/operationServices';
+import { createData, updateData } from '../services/operationServices';
 import TaskAltIcon from '@mui/icons-material/TaskAlt';
 
 const CreateCustomer = (props) => {
@@ -22,7 +22,17 @@ const initialCustomerDetails = {
     dob: '',
 };
 
-const { setUpdateToggle, firstName, lastName, gender, phoneNumber, email, age, dob, customerId, mainId } = props
+const { 
+    setUpdateToggle, 
+    firstName, 
+    lastName, 
+    gender, 
+    phoneNumber, 
+    email, 
+    age, 
+    dob, 
+    customerId, 
+    id } = props
 
 const [ customerDetailsInput,  setCustomerDetails ] = useState(initialCustomerDetails)
 const [ isFormValid, setIsFormValid ] = useState(false);
@@ -39,8 +49,8 @@ useEffect(() => {
             phoneNumber: phoneNumber,
             email: email,
             age:  age, 
-            dob: dob
-        })
+            dob: dob,
+            id: id })
     }
 },[])
 
@@ -90,10 +100,17 @@ const handleForm = async (e) => {
     e.preventDefault()
     setLoading(true)
     try {
-        const response = await createData(customerDetailsInput)
-        console.log(response)
-        setLoading(false)
-        setDoneNotify(true)
+        if(activityState === 'Update') {
+            const response = await updateData(customerDetailsInput)
+            console.log(response)
+            setLoading(false)
+            setDoneNotify(true)
+        } else {
+            const response = await createData(customerDetailsInput)
+            console.log(response)
+            setLoading(false)
+            setDoneNotify(true)
+        }
     } catch (err) {
         console.log('Error fetching data', err)
     }   
@@ -204,7 +221,7 @@ const handleForm = async (e) => {
                     </div>
                 </form> :
                 <div className='createCustomer-successStatement'>
-                    <div><TaskAltIcon /> Created Successfully</div>
+                    <div><TaskAltIcon /> {activityState}d Successfully</div>
                     <button onClick={() => {setCreateCustomerToggle(false), getData('date')}}>
                         Done
                     </button>               

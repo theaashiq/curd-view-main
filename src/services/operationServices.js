@@ -12,7 +12,7 @@ export const createData = async (postData) => {
 
 export const updateData = async (postData) => {
     try{
-        const response = await axiosInstance.get('/update', postData)
+        const response = await axiosInstance.put('/operation/update', postData)
         return response.data
     } catch(error) {
         console.error(error)
@@ -22,7 +22,11 @@ export const updateData = async (postData) => {
 
 export const deleteData = async (postData) => {
     try{
-        const response = await axiosInstance.get('/delete', postData)
+        console.log(postData, '/operation/delete Request')
+        const response = await axiosInstance.delete('/operation/delete', {
+            data: postData  
+        })
+        console.log(response, '/operation/delete Response')
         return response.data
     } catch(error) {
         console.error(error)

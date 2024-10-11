@@ -18,7 +18,8 @@ const {
     email,
     customerId, 
     createdAt,
-    lastUpdatedAt
+    lastUpdatedAt, 
+    id
 } = props
 
 const {  
@@ -92,7 +93,12 @@ const handleEdit = async () => {
         </div>
 
         {deleteToggle 
-        && <CustomerDelete setDeleteToggle={setDeleteToggle}/>}
+            && <CustomerDelete 
+                    setDeleteToggle={setDeleteToggle} 
+                    id={id}
+                    firstName={firstName}
+                    lastName={lastName} 
+                    />}
 
         {updateToggle 
             && <CreateCustomer 
@@ -103,8 +109,8 @@ const handleEdit = async () => {
                     phoneNumber={phoneNumber}
                     email={email}
                     age={age}
-                    dob={new Date(dob).toISOString().split('T')[0]} />}
-
+                    dob={new Date(dob).toISOString().split('T')[0]} 
+                    id={id}/>}
     </React.Fragment>
 
   )

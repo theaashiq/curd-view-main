@@ -53,6 +53,15 @@
 }
 
 @media (max-width: 698px) {
+    .customer-sortByBlock {
+        font-size: 12px;
+    }
+
+    .customer-sortByBlock div button {
+        font-size: 10px;
+        padding: 2px 6px;
+    } 
+
     .customer-header div {
         width: 100%;
     }

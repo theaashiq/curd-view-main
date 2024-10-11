@@ -23,10 +23,6 @@ const Customers = () => {
     setActivityState
   } = useContext(MainContext)
 
-  let value = [1, 2, 3, 4, 5, 8]
-
-
-
   const handleCreateCustomer = async () => {
     await setActivityState('Create')
     await setCreateCustomerToggle(true); 
@@ -96,7 +92,8 @@ const Customers = () => {
                     email={val.email}
                     customerId={val.customerId}
                     createdAt={val.createdAt}
-                    lastUpdatedAt={val.updatedAt} />)}
+                    lastUpdatedAt={val.updatedAt}
+                    id={val._id} />)}
               </div>}
         </div>
       </div>
