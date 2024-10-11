@@ -42,7 +42,58 @@
     background-color: #999999;
 }
 
+.customerDelete-nofify {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    /* border: 1px solid; */
+    align-items: center;
+    height: 170px;
+    
+    animation: fadeGrow 1s forwards;
+}
+
+.customerDelete-nofify div {
+    display: flex;
+    align-items: center;
+    font-size: 16px;
+    font-weight: 500;
+    color: green;
+}
+
+
+.customerDelete-nofify button {
+    background-color: #ffb600;
+    color: #fff;
+    padding: 6px 10px;
+    font-size: 16px;
+    transition: background-color 0.5s, transform 0.5s
+}
+
+.customerDelete-nofify button:hover {
+    background-color:  #e6a400;
+    transform: scale(1.05)
+}
+
+.customerDelete-nofify div svg {
+    margin-left: 10px;
+    font-size: 20px
+}
+
 @media (max-width: 998px) {
+    .customerDelete-nofify {
+        height: 100px;
+    }
+
+    .customerDelete-nofify div{
+        font-size: 14px;
+    }
+
+
+    .customerDelete-nofify button {
+        font-size: 12px;
+    }
+
     .customerDelete-details {
         width: 300px;
         font-size: 12px;

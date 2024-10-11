@@ -194,7 +194,7 @@ input::-webkit-inner-spin-button {
     display: flex;
     align-items: center;
     color: green;
-    font-size: 18px;
+    font-size: 16px;
     font-weight: 600;
     
 }
@@ -207,6 +207,8 @@ input::-webkit-inner-spin-button {
 .createCustomer-successStatement button {
     background-color: #ffb600;
     color: #fff;
+    padding: 6px 10px;
+    font-size: 16px;
     transition: background-color 0.5s, transform 0.5s
 }
 
