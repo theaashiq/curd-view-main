@@ -5,11 +5,12 @@ import { MainContext } from '../context/mainContext';
 import { createData } from '../services/operationServices';
 import TaskAltIcon from '@mui/icons-material/TaskAlt';
 
-const CreateCustomer = (prop) => {
+const CreateCustomer = (props) => {
 
-const { setCreateCustomerToggle,  getData } = useContext(MainContext)
-
-const { state } = prop
+const { 
+    setCreateCustomerToggle,  
+    getData, 
+    activityState } = useContext(MainContext)
 
 const initialCustomerDetails = {
     firstName: '',
@@ -21,10 +22,29 @@ const initialCustomerDetails = {
     dob: '',
 };
 
+const { setUpdateToggle, firstName, lastName, gender, phoneNumber, email, age, dob, customerId, mainId } = props
+
 const [ customerDetailsInput,  setCustomerDetails ] = useState(initialCustomerDetails)
 const [ isFormValid, setIsFormValid ] = useState(false);
 const [ doneNotify, setDoneNotify ] = useState(false)
 const [ loading, setLoading ] = useState(false)
+
+useEffect(() => {
+    if(activityState === 'Update') {
+        setCustomerDetails({
+            ...customerDetailsInput,
+            firstName: firstName, 
+            lastName: lastName,
+            gender: gender, 
+            phoneNumber: phoneNumber,
+            email: email,
+            age:  age, 
+            dob: dob
+        })
+    }
+},[])
+
+console.log(customerDetailsInput, 'Inpts')
 
 const calculateAge = (dob) => {
     const birthDate = new Date(dob);
@@ -90,13 +110,14 @@ const handleForm = async (e) => {
                     </div>}
                     <div className='createCustomer-header'>
                         Create Customer 
-                        <CloseIcon onClick={() => setCreateCustomerToggle(false)}/>
+                        <CloseIcon onClick={() => {setCreateCustomerToggle(false), setUpdateToggle(false)}}/>
                     </div>
                     <div className='createCustomer-innerBlock'>
                         <div className='createCustomer-block'>
                             <div>
                                 <p>First Name</p>
                                 <input
+                                    style={{textTransform: 'capitalize'}}
                                     type='text'
                                     name='firstName'
                                     pattern="^[A-Za-z\s]*$"
@@ -140,8 +161,8 @@ const handleForm = async (e) => {
                                     onChange={handleInput}
                                     name='gender'>
                                   <option value="" disabled selected>Select</option>  
-                                  <option value="Male">Male</option>
-                                  <option value="Female">Female</option>
+                                  <option value="male">Male</option>
+                                  <option value="female">Female</option>
                                   <option value="Other">Other</option>
                                 </select>
                             </div>
@@ -171,19 +192,20 @@ const handleForm = async (e) => {
                             <button 
                                 onClick={() => {
                                     setCustomerDetails(initialCustomerDetails), 
-                                    setCreateCustomerToggle(false)}}>
+                                    setCreateCustomerToggle(false)
+                                    setUpdateToggle(false)}}>
                                 Discard
                             </button>
                             <input 
                                 type='submit' 
                                 style={{ opacity: isFormValid ? 1 : 0.5, cursor: isFormValid ? 'pointer' : 'not-allowed' }}
-                                value={state}/>
+                                value={activityState}/>
                         </div>
                     </div>
                 </form> :
                 <div className='createCustomer-successStatement'>
                     <div><TaskAltIcon /> Created Successfully</div>
-                    <button onClick={() => {setCreateCustomerToggle(false), getData()}}>
+                    <button onClick={() => {setCreateCustomerToggle(false), getData('date')}}>
                         Done
                     </button>               
                 </div>}

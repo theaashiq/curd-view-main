@@ -20,14 +20,16 @@ const Customers = () => {
     setSortByState,
     getData,
     loading,
+    setActivityState
   } = useContext(MainContext)
 
   let value = [1, 2, 3, 4, 5, 8]
 
 
 
-  const handleCreateCustomer = () => {
-    setCreateCustomerToggle(true); 
+  const handleCreateCustomer = async () => {
+    await setActivityState('Create')
+    await setCreateCustomerToggle(true); 
   };
 
   console.log(customersData, 'Data')
@@ -99,7 +101,7 @@ const Customers = () => {
         </div>
       </div>
 
-      {createCustomerToggle && <CreateCustomer />}
+      {createCustomerToggle && <CreateCustomer/>}
 
       {generateReportToggle
         && <GenerateReport setGenerateReportToggle={setGenerateReportToggle} />}

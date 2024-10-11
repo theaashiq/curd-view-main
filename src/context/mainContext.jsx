@@ -10,9 +10,11 @@ export const MainProvider = ({children}) => {
     const [ dashBoardData, setdashBoardData ] = useState({})
     const [ customersData, setCustomersData ] = useState([])
     const [ sortByState, setSortByState ] = useState('name')
+    const [ activityState, setActivityState ] = useState('Create')
 
     const getData = async (sortState) => {
         setLoading(true); 
+        setSortByState(sortState)
         const postData = { sortBy: sortState }
         try {
             const data = await fetchData(postData); 
@@ -39,8 +41,10 @@ export const MainProvider = ({children}) => {
                 getData,
                 loading,
                 customersData,
-                sortByState, setSortByState  
-            }}>
+                sortByState, 
+                setSortByState,
+                activityState, 
+                setActivityState }}>
             {children}
         </MainContext.Provider>
     )

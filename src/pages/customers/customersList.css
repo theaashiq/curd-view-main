@@ -69,7 +69,13 @@
 @media (max-width: 898px) {
     .customerList-Block {
         margin: 8px 0px;
-        padding: 6px;
+        padding: 6px 6px 20px 6px;
+    }
+
+    .customerList-createdDetails {
+        margin: 0px 6px;
+        left: 0px;
+        font-size: 8px;
     }
     
     .customerList-header {

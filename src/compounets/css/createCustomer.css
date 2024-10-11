@@ -7,6 +7,7 @@
     display: grid;
     top: 0;
     right: 0;
+    z-index: 20;
     place-items: center;
     background-color: rgba(0, 0, 0, 0.5);
     animation: fadeIn 0.5s ease-in-out forwards;

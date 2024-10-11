@@ -17,6 +17,7 @@ const Dashboard = () => {
     generateReportToggle,
     setGenerateReportToggle,
     dashBoardData,
+    setActivityState,
     loading
   } = useContext(MainContext)
 
@@ -84,11 +85,12 @@ const Dashboard = () => {
   //   }
   // ];
 
-  const handleCreateCustomer = () => {
-    setCreateCustomerToggle(true); // Toggle the state
+  const handleCreateCustomer = async () => {
+    await setActivityState('Create')
+    await setCreateCustomerToggle(true); // Toggle the state
   };
 
-  const state = 'create'
+
 
   return (
     <>
@@ -182,7 +184,7 @@ const Dashboard = () => {
             </div>
           </div> }
 
-      {createCustomerToggle && <CreateCustomer state={state} />}
+      {createCustomerToggle && <CreateCustomer />}
 
       {generateReportToggle
         && <GenerateReport setGenerateReportToggle={setGenerateReportToggle} />}

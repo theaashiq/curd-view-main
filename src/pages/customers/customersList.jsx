@@ -4,6 +4,7 @@ import DeleteIcon from '@mui/icons-material/Delete';
 import { MainContext } from '../../context/mainContext';
 import CustomerDelete from './CustomerDelete.jsx';
 import './customersList.css'
+import CreateCustomer from '../../compounets/createCustomer';
 
 const CustomersList = (props) => {
 
@@ -20,10 +21,12 @@ const {
     lastUpdatedAt
 } = props
 
-const { createCustomerToggle, setCreateCustomerToggle } = useContext(MainContext)
+const {  
+    setCreateCustomerToggle,
+    setActivityState } = useContext(MainContext)
 
 const [ deleteToggle, setDeleteToggle ] = useState(false)
-
+const [ updateToggle, setUpdateToggle ] = useState(false)
 
 function formatDate(isoDateStr) {
     const date = new Date(isoDateStr);
@@ -46,6 +49,11 @@ function formatDateTime(isoDateStr) {
 }
 
 
+const handleEdit = async () => {
+    await setActivityState('Update')
+    setUpdateToggle(true)
+}
+
 
   return (
     <React.Fragment>
@@ -53,7 +61,7 @@ function formatDateTime(isoDateStr) {
             <div className='customerList-header'> 
                 {firstName} {lastName}
                 <div>
-                    <EditIcon onClick={() => setCreateCustomerToggle(true)}/>
+                    <EditIcon onClick={() => handleEdit()}/>
                     <DeleteIcon onClick={() => setDeleteToggle(true)}/>
                 </div>
             </div>
@@ -85,6 +93,17 @@ function formatDateTime(isoDateStr) {
 
         {deleteToggle 
         && <CustomerDelete setDeleteToggle={setDeleteToggle}/>}
+
+        {updateToggle 
+            && <CreateCustomer 
+                    setUpdateToggle={setUpdateToggle}
+                    firstName={firstName}
+                    lastName={lastName}
+                    gender={gender}
+                    phoneNumber={phoneNumber}
+                    email={email}
+                    age={age}
+                    dob={new Date(dob).toISOString().split('T')[0]} />}
 
     </React.Fragment>
 
