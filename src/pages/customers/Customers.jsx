@@ -45,14 +45,14 @@ const Customers = () => {
           <button onClick={() => handleCreateCustomer()}>
             <AddIcon /> Create Customer
           </button>
-          <div>
+          {/* <div>
             <input type='text' placeholder='Search by name or email' /> <SearchIcon />
-          </div>
-          <button
+          </div> */}
+          {/* <button
             onClick={() => setGenerateReportToggle(true)}
             style={{ backgroundColor: '#ffb600', marginLeft: 'auto' }}>
             <InsertDriveFileIcon style={{ backgroundColor: 'transparent' }} /> Generate Report
-          </button>
+          </button> */}
         </div>
         <div className='customer-sortByBlock'>
           <div>Sort By</div>

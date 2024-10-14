@@ -103,11 +103,11 @@ const Dashboard = () => {
               <button onClick={() => handleCreateCustomer()}>
                 <AddIcon /> Create Customer
               </button>
-              <button
+              {/* <button
                 onClick={() => setGenerateReportToggle(true)}
                 style={{ backgroundColor: '#ffb600' }}>
                 <InsertDriveFileIcon style={{ backgroundColor: 'transparent' }} /> Generate Report
-              </button>
+              </button> */}
             </div>
             <div className='dashboard-totalCustomerBlock'>
               <div className='dashboard-totalCustomer'>Customers: 
